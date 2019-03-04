@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <Link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+</head>
+<body>
+    <div class='head'>
+            <h1><i class="em em-pencil2"></i><strong>Make your daily notes here</strong> <i class="em em-spiral_note_pad"></i></h1>
+    </div>
+    <div class='jumbotron'>
+        <div class='roww'>
+         <ul style="list-style: none;">
+                {% for todos in todo %}
+               <li><label><input type="checkbox" value="">{{todos.note}}</label> 
+                <form method="POST" action='/delete/{{todos.id}}/' style='display:inline;' >
+               {% csrf_token %}
+          <button type='submit' class='btn btn-danger btn-sm'>Delete</button>
+       </form>
+    </li>
+    {% endfor %}
+   </ul>
+</div>
+</div>
+<div class='jumbotron'>
+    <form method="POST" action='/add/' class='form'>
+        <!--{{todo.as_p}}-->
+        {% csrf_token %}
+
+        <input type='text' name='note' class='input'/>
+        <button type='submit' class='btn btn-success'>Add</button>
+    </form>
+</div>
+</body>
+</html>

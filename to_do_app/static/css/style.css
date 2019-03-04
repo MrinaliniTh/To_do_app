@@ -1,0 +1,24 @@
+.form{
+    color:red;
+    background-color: lightslategrey;
+    text-align: center;
+}
+.jumbotron{
+    background-color:lightslategrey;
+    
+}
+.head{
+    color:red;
+    text-align: center;
+    font-family: Comic Sans MS;
+}
+
+.input{
+    height:100px;
+}
+.roww{
+    background-color:lightseagreen;
+    overflow-y: scroll;
+    max-height: 250px;
+    display: flow-root
+}
